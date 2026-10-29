@@ -23,10 +23,16 @@
     var name = f.namedItem('name').value.trim();
     var phone = f.namedItem('phone').value.trim();
     [f.namedItem('name'), f.namedItem('phone')].forEach(function (el) { el.classList.add('touched'); });
+    var nameEl = f.namedItem('name'), phoneEl = f.namedItem('phone');
+    nameEl.setAttribute('aria-invalid', name ? 'false' : 'true');
+    phoneEl.setAttribute('aria-invalid', phone ? 'false' : 'true');
     if (!name || !phone) {
       note.classList.add('is-error');
-      note.textContent = 'Add your name and phone number so Vinson can get back to you.';
-      (name ? f.namedItem('phone') : f.namedItem('name')).focus();
+      note.textContent = !name && !phone
+        ? 'Add your name and phone number so Vinson can get back to you.'
+        : (!name ? 'Add your name so Vinson can get back to you.'
+                 : 'Add your phone number so Vinson can get back to you.');
+      (name ? phoneEl : nameEl).focus();
       return;
     }
     note.classList.remove('is-error');
