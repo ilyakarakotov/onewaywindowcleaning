@@ -1,3 +1,78 @@
+// Header menus: dropdown cards on desktop, a slide-down panel on phones.
+(function () {
+  var bar = document.getElementById('bar');
+  var toggle = bar && bar.querySelector('.nav__toggle');
+  if (!toggle) return;
+  var items = [].slice.call(bar.querySelectorAll('.nav__item--menu'));
+  var label = toggle.querySelector('.sr-only');
+  var compact = window.matchMedia('(max-width: 1080px)');
+  bar.classList.add('nav-js');
+
+  var setItem = function (item, open) {
+    item.classList.toggle('is-open', open);
+    item.querySelector('.nav__trigger').setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (!open) item.hoverOpened = false;
+  };
+  var closeItems = function (except) {
+    items.forEach(function (it) { if (it !== except) setItem(it, false); });
+  };
+  var setPanel = function (open) {
+    bar.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    label.textContent = open ? 'Close menu' : 'Menu';
+    document.documentElement.classList.toggle('nav-open', open);
+    if (!open) closeItems();
+  };
+
+  toggle.addEventListener('click', function () { setPanel(!bar.classList.contains('is-open')); });
+
+  items.forEach(function (item) {
+    var trigger = item.querySelector('.nav__trigger');
+    var timer;
+    trigger.addEventListener('click', function () {
+      // a click right after hover opened the menu keeps it open instead of snapping it shut
+      var open = item.hoverOpened || !item.classList.contains('is-open');
+      if (!compact.matches) closeItems(item);
+      setItem(item, open);
+      item.hoverOpened = false;
+    });
+    item.addEventListener('pointerenter', function (e) {
+      if (e.pointerType !== 'mouse' || compact.matches) return;
+      clearTimeout(timer);
+      if (item.classList.contains('is-open')) return;
+      closeItems(item);
+      setItem(item, true);
+      item.hoverOpened = true;
+    });
+    item.addEventListener('pointerleave', function (e) {
+      if (e.pointerType !== 'mouse' || compact.matches) return;
+      timer = setTimeout(function () { setItem(item, false); }, 180);
+    });
+    // keyboard: tabbing out of a desktop dropdown closes it
+    item.addEventListener('focusout', function (e) {
+      if (compact.matches || item.contains(e.relatedTarget)) return;
+      setItem(item, false);
+    });
+  });
+
+  // Following any link closes the menu, including same-page links like #faq.
+  bar.addEventListener('click', function (e) {
+    if (e.target.closest('a')) setPanel(false);
+  });
+  document.addEventListener('click', function (e) {
+    if (!bar.contains(e.target)) closeItems();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    var open = items.filter(function (it) { return it.classList.contains('is-open'); })[0];
+    if (open && !compact.matches) { setItem(open, false); open.querySelector('.nav__trigger').focus(); }
+    else if (bar.classList.contains('is-open')) { setPanel(false); toggle.focus(); }
+  });
+  var reset = function () { setPanel(false); };
+  if (compact.addEventListener) compact.addEventListener('change', reset);
+  else if (compact.addListener) compact.addListener(reset);
+})();
+
 // Header: show the small logo once the big one has scrolled away.
 (function () {
   var bar = document.getElementById('bar');

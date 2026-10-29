@@ -23,10 +23,60 @@
         <picture><source srcset="/assets/logo-small.webp" type="image/webp"><img src="/assets/logo-small.png" alt="" width="240" height="77"></picture>
       </a>
       <p class="bar__note">Licensed <span class="dot" aria-hidden="true">·</span> Free estimates</p>
-      <nav class="bar__nav" aria-label="Main">
-        <a href="/#services">Services</a>
-        <a href="/#estimate">Estimate</a>
+      <nav class="bar__nav nav" aria-label="Main">
+        <div class="nav__panel" id="nav-panel">
+          <ul class="nav__list">
+            <li class="nav__item nav__item--menu">
+              <button class="nav__trigger" type="button" aria-expanded="false" aria-controls="nav-services">Services<svg class="nav__chev" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <div class="nav__menu" id="nav-services">
+                <ul class="nav__sub">
+                  <li><a href="/window-cleaning/"><span class="nav__t">Window cleaning</span><span class="nav__d">Streak-free glass, inside and out</span></a></li>
+                  <li><a href="/hard-water-removal/"><span class="nav__t">Hard water removal</span><span class="nav__d">White mineral spots lifted off glass</span></a></li>
+                  <li><a href="/pressure-washing/"><span class="nav__t">Pressure washing</span><span class="nav__d">Driveways, walkways and patios</span></a></li>
+                  <li><a href="/gutter-cleaning/"><span class="nav__t">Gutter cleaning</span><span class="nav__d">Leaves and debris cleared out</span></a></li>
+                </ul>
+                <a class="nav__all" href="/#services">All services <span aria-hidden="true">&rarr;</span></a>
+              </div>
+            </li>
+            <li class="nav__item nav__item--menu">
+              <button class="nav__trigger" type="button" aria-expanded="false" aria-controls="nav-areas">Service area<svg class="nav__chev" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <div class="nav__menu" id="nav-areas">
+                <ul class="nav__sub">
+                  <li><a href="/service-area/everett/"><span class="nav__t">Everett</span><span class="nav__d">Snohomish County</span></a></li>
+                  <li><a href="/service-area/snohomish/"><span class="nav__t">Snohomish</span><span class="nav__d">Snohomish County</span></a></li>
+                  <li><a href="/service-area/seattle/"><span class="nav__t">Seattle</span><span class="nav__d">King County</span></a></li>
+                  <li><a href="/service-area/bellevue/"><span class="nav__t">Bellevue</span><span class="nav__d">King County</span></a></li>
+                </ul>
+                <a class="nav__all" href="/service-area/">Full service area <span aria-hidden="true">&rarr;</span></a>
+              </div>
+            </li>
+            <li class="nav__item"><a class="nav__link" href="/pricing/">Pricing</a></li>
+            <li class="nav__item nav__item--menu">
+              <button class="nav__trigger" type="button" aria-expanded="false" aria-controls="nav-guides">Guides<svg class="nav__chev" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <div class="nav__menu" id="nav-guides">
+                <ul class="nav__sub">
+                  <li><a href="/guides/hard-water-stains-on-windows/"><span class="nav__t">Hard water stains on windows</span><span class="nav__d">How to remove them, and when to stop</span></a></li>
+                  <li><a href="/guides/how-often-to-clean-windows-gutters-and-surfaces/"><span class="nav__t">How often to clean</span><span class="nav__d">Gutters, windows and driveways in the PNW</span></a></li>
+                </ul>
+                <a class="nav__all" href="/guides/">All guides <span aria-hidden="true">&rarr;</span></a>
+              </div>
+            </li>
+            <li class="nav__item nav__item--menu">
+              <button class="nav__trigger" type="button" aria-expanded="false" aria-controls="nav-about">About<svg class="nav__chev" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <div class="nav__menu" id="nav-about">
+                <ul class="nav__sub">
+                  <li><a href="/about/"><span class="nav__t">About Vinson</span><span class="nav__d">The owner you talk to when you call</span></a></li>
+                  <li><a href="/#how-it-works"><span class="nav__t">How it works</span><span class="nav__d">Three steps, no runaround</span></a></li>
+                  <li><a href="/#faq"><span class="nav__t">Common questions</span><span class="nav__d">Pricing, timing, being home</span></a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+          <a class="nav__cta" href="/#estimate">Free estimate</a>
+          <p class="nav__foot">Licensed <span class="dot" aria-hidden="true">·</span> Free estimates</p>
+        </div>
         <a class="bar__call" href="tel:+15097705633">509-770-5633</a>
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-panel"><span class="nav__burger" aria-hidden="true"><span></span></span><span class="sr-only">Menu</span></button>
       </nav>
     </div>
   </header>
