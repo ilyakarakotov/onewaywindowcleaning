@@ -113,12 +113,23 @@ h3 { font: 700 1.125rem/1.3 "Manrope", sans-serif; color: var(--ink); }
   text-align: center;
   position: relative;
 }
-/* faint window mullions behind the logo: you're looking through clean glass */
-.front::before, .front::after {
-  content: ""; position: absolute; pointer-events: none; background: var(--line);
+/* daylight behind the logo: a soft blue sky wash and two faint glare streaks, like sun on clean glass */
+.front { isolation: isolate; overflow: hidden; }
+.front::before, .front::after { content: ""; position: absolute; z-index: -1; pointer-events: none; }
+.front::before {
+  inset: 0;
+  background:
+    radial-gradient(60% 46% at 50% 30%, rgba(10,149,247,.10), rgba(10,149,247,0) 70%),
+    radial-gradient(38% 30% at 82% 6%, rgba(255,214,107,.16), rgba(255,214,107,0) 70%),
+    linear-gradient(180deg, #f2f8fe 0%, rgba(255,255,255,0) 62%);
 }
-.front::before { left: 50%; top: 0; bottom: 0; width: 1px; transform: translateX(-.5px); mask: linear-gradient(transparent 0 8%, #000 30%, transparent 46%, transparent 74%, #000 88%, transparent 100%); -webkit-mask: linear-gradient(transparent 0 8%, #000 30%, transparent 46%, transparent 74%, #000 88%, transparent 100%); }
-.front::after { top: 50%; left: 0; right: 0; height: 1px; mask: linear-gradient(90deg, transparent 0, #000 12%, transparent 30%, transparent 70%, #000 88%, transparent 100%); -webkit-mask: linear-gradient(90deg, transparent 0, #000 12%, transparent 30%, transparent 70%, #000 88%, transparent 100%); }
+.front::after {
+  inset: -10% -20%;
+  background:
+    linear-gradient(115deg, rgba(10,149,247,0) 30%, rgba(10,149,247,.07) 36%, rgba(10,149,247,0) 42%),
+    linear-gradient(115deg, rgba(10,149,247,0) 44%, rgba(10,149,247,.045) 46.5%, rgba(10,149,247,0) 49%);
+  -webkit-mask: radial-gradient(70% 60% at 50% 40%, #000 30%, transparent 80%); mask: radial-gradient(70% 60% at 50% 40%, #000 30%, transparent 80%);
+}
 
 .front__logo { position: relative; width: min(660px, 88vw); z-index: 1; }
 .front__logo img { width: 100%; }
@@ -274,7 +285,6 @@ textarea::placeholder { color: var(--muted); }
   .services-line .brk { display: block; height: 0; overflow: hidden; }
   .services-line--dark { letter-spacing: 0.12em; }
   .foot__area { letter-spacing: 0.14em; }
-  .front::before, .front::after { display: none; }
   .front__actions { flex-direction: column; gap: 26px; }
   .front .phone-link { align-items: center; }
   .svc__row { grid-template-columns: 34px minmax(0, 1fr) 56px; gap: 14px; padding: 24px 0; }
