@@ -308,7 +308,7 @@
         }
       }
 
-      blade = Math.round(H * (W < 600 ? 0.44 : 0.36));
+      blade = Math.round(H * (W < 600 ? 0.37 : 0.36));
       var toolH = blade / 0.92, toolW = toolH * 1.1;
       root.style.setProperty('--sq-w', toolW.toFixed(1) + 'px');
       ox = toolW * (192 / 220); oy = toolH / 2;
