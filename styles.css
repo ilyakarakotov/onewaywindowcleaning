@@ -270,3 +270,96 @@ textarea::placeholder { color: #9aa2ad; }
   .glint { display: none; }
   * { transition: none !important; }
 }
+
+/* ================================================================== service pages */
+.sub .bar { background: rgba(255,255,255,.94); }
+.sub .bar__note { opacity: 1 !important; }
+.sub main { padding-top: 68px; }
+
+.phero { padding: clamp(56px, 8vw, 104px) 0 clamp(56px, 7vw, 88px); border-bottom: 1px solid var(--line); }
+.phero__grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: clamp(40px, 6vw, 88px); align-items: center; }
+.crumbs { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; font: var(--label); font-size: 0.6875rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted); margin-bottom: 26px; }
+.crumbs a { color: var(--muted); text-decoration: none; }
+.crumbs a:hover { color: var(--blue-text); }
+.crumbs [aria-current] { color: var(--blue-text); }
+.phero h1 {
+  font: 700 clamp(1.9rem, 1.2rem + 2.6vw, 3.1rem)/1.12 "Montserrat", sans-serif;
+  letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink); max-width: 20ch;
+}
+.phero__lede { margin-top: 24px; font-size: 1.1875rem; line-height: 1.6; color: var(--body); max-width: 54ch; }
+.phero__actions { margin-top: 38px; display: flex; flex-wrap: wrap; align-items: center; gap: 18px 36px; }
+.phero__actions--center { justify-content: center; }
+
+/* "at a glance": set like the back of the card */
+.glance { background: #fff; border-radius: 4px; padding: 32px 30px 28px; position: relative;
+  box-shadow: 0 1px 1px rgba(14,16,19,.06), 0 2px 4px rgba(14,16,19,.05), 0 28px 48px -22px rgba(14,16,19,.30); }
+.glance__icon { height: 40px; width: auto; margin-bottom: 22px; }
+.glance dl { margin: 0; }
+.glance__row { padding: 12px 0; border-top: 1px solid var(--line); }
+.glance__row dt { font: var(--label); font-size: 0.625rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--blue-text); margin-bottom: 6px; }
+.glance__row dd { margin: 0; font: 600 0.9375rem/1.45 "Manrope", sans-serif; color: var(--ink); }
+.glance__badges { margin-top: 18px; font: var(--label); font-size: 0.6875rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue-text); }
+.glance__badges .rule { width: 20px; margin-right: 10px; }
+
+.blocks { padding-top: clamp(24px, 4vw, 48px); padding-bottom: clamp(56px, 7vw, 96px); }
+.block { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(28px, 5vw, 80px); padding: clamp(40px, 5vw, 64px) 0; border-bottom: 1px solid var(--line); }
+.block:last-child { border-bottom: 0; }
+.block h2 { font-size: clamp(1.3rem, 1.05rem + 1vw, 1.75rem); line-height: 1.2; }
+.prose p { color: var(--body); max-width: 62ch; }
+.prose p + p { margin-top: 16px; }
+.prose a { color: var(--blue-text); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.checks { list-style: none; margin: 26px 0 0; padding: 0; border-top: 1px solid var(--line); max-width: 62ch; }
+.checks li { position: relative; padding: 14px 0 14px 34px; border-bottom: 1px solid var(--line); font-weight: 600; color: var(--ink); }
+.checks li::before {
+  content: ""; position: absolute; left: 2px; top: 17px; width: 15px; height: 19px;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 130'><path d='M50 0C62 22 100 52 100 84C100 110 78 130 50 130C22 130 0 110 0 84C0 52 38 22 50 0Z' fill='%230A95F7'/><path d='M40 78Q42.3 94.7 59 97Q42.3 99.3 40 116Q37.7 99.3 21 97Q37.7 94.7 40 78Z' fill='%23fff'/></svg>") no-repeat center / contain;
+}
+
+.faq__item { border-top: 1px solid var(--line); }
+.faq__item:last-child { border-bottom: 1px solid var(--line); }
+.faq__item summary {
+  list-style: none; cursor: pointer; padding: 20px 40px 20px 0; position: relative;
+  font: 700 1.0625rem/1.4 "Manrope", sans-serif; color: var(--ink);
+}
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__item summary::after { content: ""; position: absolute; right: 4px; top: 50%; width: 12px; height: 12px; margin-top: -8px;
+  border-right: 2px solid var(--blue); border-bottom: 2px solid var(--blue); transform: rotate(45deg); transition: transform .2s ease; }
+.faq__item[open] summary::after { transform: rotate(-135deg); margin-top: -2px; }
+.faq__item summary:hover { color: var(--blue-text); }
+.faq__item p { padding: 0 40px 22px 0; color: var(--body); max-width: 62ch; }
+
+.cta { background: var(--mist); padding: clamp(72px, 9vw, 120px) 0; text-align: center; }
+.cta__inner { display: flex; flex-direction: column; align-items: center; }
+.cta__text { margin-top: 16px; max-width: 46ch; color: var(--muted); }
+.cta .phero__actions { margin-top: 32px; }
+.cta .phone-link { align-items: flex-start; }
+
+.others { margin-top: 8px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+.other { display: flex; align-items: center; gap: 18px; padding: 26px 24px 26px 0; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--line); }
+.other + .other { padding-left: 24px; border-left: 1px solid var(--line); }
+.other__icon { height: 34px; width: auto; flex: none; }
+.other__name { font: 700 0.9375rem/1.3 "Montserrat", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; }
+.other__go { margin-left: auto; color: var(--blue); transition: transform .2s ease; }
+.other:hover .other__name { color: var(--blue-text); }
+.other:hover .other__go { transform: translateX(4px); }
+
+/* home: service rows link to their pages */
+.svc__row { position: relative; }
+.svc__row h3 a { color: inherit; text-decoration: none; }
+.svc__row h3 a::after { content: ""; position: absolute; inset: 0; }
+.svc__row:hover h3 { color: var(--blue-text); }
+.svc__more { display: inline-block; margin-top: 10px; font: var(--label); font-size: 0.6875rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--blue-text); }
+
+@media (max-width: 900px) {
+  .phero__grid, .block { grid-template-columns: 1fr; }
+  .block { gap: 18px; }
+  .others { grid-template-columns: 1fr; }
+  .other + .other { padding-left: 0; border-left: 0; }
+}
+@media (max-width: 640px) {
+  .sub main { padding-top: 60px; }
+  .sub .bar__note { display: none; }
+  .phero__actions { flex-direction: column; align-items: flex-start; gap: 22px; }
+  .cta .phero__actions { align-items: center; }
+  .cta .phone-link { align-items: center; }
+}
