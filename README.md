@@ -10,7 +10,7 @@ Plain HTML/CSS/JS: no build step, no framework.
 ```
 index.html      the whole page
 styles.css      all styling (colors and fonts are at the top in :root)
-main.js         sticky header + the free-estimate form
+main.js         sticky header, the free-estimate form, scroll effects and the squeegee glass
 assets/         logo, service icons, favicon, social share image
 fonts/          Montserrat + Manrope (self-hosted, SIL Open Font License)
 ```
@@ -21,6 +21,14 @@ fonts/          Montserrat + Manrope (self-hosted, SIL Open Font License)
 - **Phone / email:** search `index.html` and `main.js` for `509-770-5633`,
   `+15097705633` and `sochircavinson@gmail.com`.
 - **Colors:** the `:root` block at the top of `styles.css`.
+
+## The squeegee glass
+
+The "Drag the squeegee" window on the home page and the hard water guide is the
+`.sq` block in the HTML, the `squeegee glass` section of `styles.css` and the last
+module in `main.js`. The view behind the glass is the inline SVG `.sq__scene`; the
+grime is painted onto a canvas from that same SVG, so editing the scene updates
+both. Without JavaScript it falls back to a static before/after split.
 
 ## The estimate form
 
